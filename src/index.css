@@ -1,9 +1,14 @@
-/* global styles */
-* {
-  box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global polish */
+html, body {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #F7F6F3;
+  color: #1A1A1A;
+  font-family: Inter, system-ui, sans-serif;
 }
