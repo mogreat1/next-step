@@ -35,7 +35,7 @@ export default function App() {
     e.preventDefault();
     const form = e.target;
 
-    await fetch("https://n8n-production-bdf7.up.railway.app/webhook-test/create", {
+    await fetch("https://n8n-production-bdf7.up.railway.app/webhook/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -53,17 +53,23 @@ export default function App() {
     <div className="bg-[#F7F6F3] text-[#1A1A1A] font-sans scroll-smooth">
 
       {/* NAV */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur bg-white/70 border-b border-black/5">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-          <span className="font-serif text-xl">NEXT STEP</span>
-          <div className="hidden md:flex gap-12 text-sm text-black/70">
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
-            <a href="#team">Team</a>
-            <a href="#values">Our Values</a>
-            <a href="#contact">Contact</a>
+      <nav className="fixed top-0 w-full z-50 backdrop-blur bg-white/80 border-b border-black/5">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+          <span className="font-serif text-2xl">NEXT STEP</span>
+
+          <div className="hidden md:flex gap-14 text-base text-black/80 font-medium">
+            <a href="#services" className="hover:underline underline-offset-8">Services</a>
+            <a href="#about" className="hover:underline underline-offset-8">About</a>
+            <a href="#team" className="hover:underline underline-offset-8">Team</a>
+            <a href="#values" className="hover:underline underline-offset-8">Our Values</a>
+            <a href="#contact" className="hover:underline underline-offset-8">Contact</a>
           </div>
-          <Button className="rounded-full px-6 py-2">Get Started</Button>
+
+          <a href="#contact">
+            <Button className="rounded-full px-8 py-2.5 hover:shadow-lg">
+              Start Your Next Step
+            </Button>
+          </a>
         </div>
       </nav>
 
@@ -84,8 +90,16 @@ export default function App() {
               interview training, and personalized career consulting.
             </p>
             <div className="flex gap-6">
-              <Button className="rounded-full px-10 py-3">Start Your Journey</Button>
-              <Button variant="outline" className="rounded-full px-10 py-3">Learn More</Button>
+              <a href="#contact">
+                <Button className="rounded-full px-10 py-3">
+                  Start Your Next Step
+                </Button>
+              </a>
+              <a href="#about">
+                <Button variant="outline" className="rounded-full px-10 py-3">
+                  Learn More
+                </Button>
+              </a>
             </div>
           </motion.div>
 
@@ -137,81 +151,6 @@ export default function App() {
               and personalized support.
             </p>
           </div>
-
-          <div className="grid md:grid-cols-2 gap-20">
-            <div>
-              <h3 className="font-serif text-2xl mb-10">Our Process</h3>
-              <div className="space-y-5">
-                {[
-                  "Discovery Call – understanding your goals and challenges.",
-                  "Assessment – in-depth review of skills and experience.",
-                  "Strategy Development – tailored career action plan.",
-                  "Implementation – resumes, interviews, job search.",
-                  "Success & Follow-up – support until you land the role.",
-                ].map((step, i) => (
-                  <div key={i} className="bg-white/80 border border-black/10 rounded-2xl p-6">
-                    {step}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <Card>
-              <CardContent>
-                <h3 className="font-serif text-2xl mb-8">What You Get</h3>
-                <ul className="space-y-4 text-black/70 text-lg">
-                  <li>• Personalized 1-on-1 coaching</li>
-                  <li>• Industry-specific guidance</li>
-                  <li>• Resume & LinkedIn optimization</li>
-                  <li>• Mock interview practice</li>
-                  <li>• Salary negotiation strategies</li>
-                </ul>
-                <div className="flex gap-12 mt-12">
-                  <div>
-                    <p className="text-4xl font-serif text-[#D4AF37]">95%</p>
-                    <p className="text-sm text-black/60">Success Rate</p>
-                  </div>
-                  <div>
-                    <p className="text-4xl font-serif text-[#D4AF37]">2 weeks</p>
-                    <p className="text-sm text-black/60">Avg. Time to Results</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* TEAM */}
-      <section id="team" className="py-40 max-w-5xl mx-auto px-6">
-        <h2 className="font-serif text-5xl text-center mb-24">
-          Your Career Success Team
-        </h2>
-        <div className="grid md:grid-cols-2 gap-16">
-          {["Kateryna – Career Coach", "Irma – Career Strategist"].map((name) => (
-            <Card key={name} className="text-center">
-              <CardContent>
-                <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-black/5" />
-                <h3 className="font-serif text-2xl">{name}</h3>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* VALUES */}
-      <section id="values" className="py-40 bg-black/5">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-16">
-          {["Authenticity", "Support", "Growth"].map((v) => (
-            <Card key={v}>
-              <CardContent>
-                <h3 className="font-serif text-2xl mb-4">{v}</h3>
-                <p className="text-black/60 text-lg">
-                  Genuine, human-centered consulting focused on long-term impact.
-                </p>
-              </CardContent>
-            </Card>
-          ))}
         </div>
       </section>
 
@@ -237,7 +176,9 @@ export default function App() {
                   <input name="phone" required placeholder="Phone" className="w-full p-4 border rounded-lg" />
                   <input name="email" required type="email" placeholder="Email" className="w-full p-4 border rounded-lg" />
                   <textarea name="message" required placeholder="How can I help you?" className="w-full p-4 border rounded-lg h-36" />
-                  <Button className="w-full rounded-full py-3">Send Message</Button>
+                  <Button className="w-full rounded-full py-3">
+                    Send Message
+                  </Button>
                 </form>
               ) : (
                 <div className="text-center">
@@ -252,39 +193,8 @@ export default function App() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#111111] text-white/80 py-24">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-16">
-          <div>
-            <p className="font-serif text-lg text-white mb-2">NEXT STEP</p>
-            <p className="text-white/60 max-w-sm">
-              Career Consulting: CV review, interview preparation, and career strategy.
-            </p>
-          </div>
-
-          <div>
-            <p className="text-white font-medium mb-6">Our Services</p>
-            <ul className="space-y-3 text-white/60">
-              <li>Resume Review</li>
-              <li>Interview Preparation</li>
-              <li>Career Strategy</li>
-              <li>Job Search Support</li>
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-white font-medium mb-6">Quick Links</p>
-            <ul className="space-y-3 text-white/60">
-              <li><a href="#services">Services</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#team">Team</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/10 text-center text-white/40 text-sm">
-          © 2026 NEXT STEP. All rights reserved. · Privacy Policy · Terms of Service
-        </div>
+      <footer className="bg-[#111111] text-white/80 py-24 text-center">
+        © 2026 NEXT STEP. All rights reserved.
       </footer>
 
     </div>
