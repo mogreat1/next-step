@@ -10,7 +10,7 @@ const Card = ({ children, className = "" }) => (
 );
 
 const CardContent = ({ children, className = "" }) => (
-  <div className={`p-10 ${className}`}>{children}</div>
+  <div className={`p-12 ${className}`}>{children}</div>
 );
 
 const Button = ({ children, className = "", variant, ...props }) => {
@@ -54,49 +54,56 @@ export default function App() {
 
       {/* NAV */}
       <nav className="fixed top-0 w-full z-50 backdrop-blur bg-white/70 border-b border-black/5">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
           <span className="font-serif text-xl">NEXT STEP</span>
-          <div className="hidden md:flex gap-10 text-sm text-black/70">
+          <div className="hidden md:flex gap-12 text-sm text-black/70">
             <a href="#services">Services</a>
             <a href="#about">About</a>
             <a href="#team">Team</a>
             <a href="#values">Our Values</a>
             <a href="#contact">Contact</a>
           </div>
-          <Button className="rounded-full px-6">Get Started</Button>
+          <Button className="rounded-full px-6 py-2">Get Started</Button>
         </div>
       </nav>
 
       {/* HERO */}
-      <section className="min-h-screen flex items-center px-6 pt-32">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+      <section className="min-h-screen flex items-center px-6 pt-40 pb-32 bg-gradient-to-b from-[#F7F6F3] to-[#F2EFEA]">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-24 items-center">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="tracking-widest text-sm text-black/50 mb-6">CAREER TRANSFORMATION</p>
-            <h1 className="font-serif text-6xl leading-tight mb-8">
-              Your Story.<br />Your Confidence.<br />Your Future.
+            <p className="uppercase tracking-widest text-xs text-black/40 mb-8">
+              Career Transformation
+            </p>
+            <h1 className="font-serif text-7xl leading-[1.05] mb-10">
+              Your Story.<br />
+              Your Confidence.<br />
+              <span className="text-[#D4AF37]">Your Future.</span>
             </h1>
-            <p className="text-black/70 max-w-lg mb-10">
+            <p className="text-black/70 max-w-lg mb-12 text-lg">
               We empower professionals to unlock their full potential through expert CV review,
               interview training, and personalized career consulting.
             </p>
             <div className="flex gap-6">
-              <Button className="rounded-full px-8">Start Your Journey</Button>
-              <Button variant="outline" className="rounded-full px-8">Learn More</Button>
+              <Button className="rounded-full px-10 py-3">Start Your Journey</Button>
+              <Button variant="outline" className="rounded-full px-10 py-3">Learn More</Button>
             </div>
           </motion.div>
 
           <img
             src="/hero-career-growth.png"
             alt="Career growth"
-            className="max-w-[420px] w-full object-contain hidden md:block"
+            className="max-w-[440px] w-full object-contain hidden md:block"
           />
         </div>
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="py-32 max-w-7xl mx-auto px-6">
-        <h2 className="font-serif text-4xl mb-12">Our Services</h2>
-        <div className="grid md:grid-cols-3 gap-12">
+      <section id="services" className="py-40 max-w-7xl mx-auto px-6">
+        <p className="uppercase tracking-widest text-xs text-black/40 mb-6">
+          What We Offer
+        </p>
+        <h2 className="font-serif text-5xl mb-20">Our Services</h2>
+        <div className="grid md:grid-cols-3 gap-16">
           {[
             ["Resume Review", "Professional resume analysis and ATS optimization."],
             ["Interview Preparation", "Mock interviews and confidence building."],
@@ -108,75 +115,83 @@ export default function App() {
             <Card key={title}>
               <CardContent>
                 <h3 className="font-serif text-2xl mb-4">{title}</h3>
-                <p className="text-black/60">{desc}</p>
+                <p className="text-black/60 leading-relaxed">{desc}</p>
               </CardContent>
             </Card>
           ))}
         </div>
       </section>
 
-      {/* ABOUT / PROCESS */}
-      <section id="about" className="py-32 max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <p className="tracking-widest text-sm text-black/50 mb-4">OUR APPROACH</p>
-          <h2 className="font-serif text-5xl mb-6">Your Path to Career Success</h2>
-          <p className="text-black/60">
-            We guide you through every step of your career journey with proven strategies
-            and personalized support.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-16">
-          <div>
-            <h3 className="font-serif text-2xl mb-8">Our Process</h3>
-            <div className="space-y-4">
-              {[
-                "Discovery Call – understanding your goals and challenges.",
-                "Assessment – in-depth review of skills and experience.",
-                "Strategy Development – tailored career action plan.",
-                "Implementation – resumes, interviews, job search.",
-                "Success & Follow-up – support until you land the role.",
-              ].map((step, i) => (
-                <div key={i} className="bg-white/80 border border-black/10 rounded-2xl p-5">
-                  {step}
-                </div>
-              ))}
-            </div>
+      {/* ABOUT */}
+      <section id="about" className="py-40 bg-white/60 backdrop-blur">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-24">
+            <p className="uppercase tracking-widest text-xs text-black/40 mb-6">
+              Our Approach
+            </p>
+            <h2 className="font-serif text-6xl mb-8">
+              Your Path to Career Success
+            </h2>
+            <p className="text-black/60 text-lg">
+              We guide you through every step of your career journey with proven strategies
+              and personalized support.
+            </p>
           </div>
 
-          <Card>
-            <CardContent>
-              <h3 className="font-serif text-2xl mb-6">What You Get</h3>
-              <ul className="space-y-3 text-black/70">
-                <li>• Personalized 1-on-1 coaching</li>
-                <li>• Industry-specific guidance</li>
-                <li>• Resume & LinkedIn optimization</li>
-                <li>• Mock interview practice</li>
-                <li>• Salary negotiation strategies</li>
-              </ul>
-              <div className="flex gap-10 mt-10">
-                <div>
-                  <p className="text-3xl font-serif text-[#D4AF37]">95%</p>
-                  <p className="text-sm text-black/60">Success Rate</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-serif text-[#D4AF37]">2 weeks</p>
-                  <p className="text-sm text-black/60">Avg. Time to Results</p>
-                </div>
+          <div className="grid md:grid-cols-2 gap-20">
+            <div>
+              <h3 className="font-serif text-2xl mb-10">Our Process</h3>
+              <div className="space-y-5">
+                {[
+                  "Discovery Call – understanding your goals and challenges.",
+                  "Assessment – in-depth review of skills and experience.",
+                  "Strategy Development – tailored career action plan.",
+                  "Implementation – resumes, interviews, job search.",
+                  "Success & Follow-up – support until you land the role.",
+                ].map((step, i) => (
+                  <div key={i} className="bg-white/80 border border-black/10 rounded-2xl p-6">
+                    {step}
+                  </div>
+                ))}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+
+            <Card>
+              <CardContent>
+                <h3 className="font-serif text-2xl mb-8">What You Get</h3>
+                <ul className="space-y-4 text-black/70 text-lg">
+                  <li>• Personalized 1-on-1 coaching</li>
+                  <li>• Industry-specific guidance</li>
+                  <li>• Resume & LinkedIn optimization</li>
+                  <li>• Mock interview practice</li>
+                  <li>• Salary negotiation strategies</li>
+                </ul>
+                <div className="flex gap-12 mt-12">
+                  <div>
+                    <p className="text-4xl font-serif text-[#D4AF37]">95%</p>
+                    <p className="text-sm text-black/60">Success Rate</p>
+                  </div>
+                  <div>
+                    <p className="text-4xl font-serif text-[#D4AF37]">2 weeks</p>
+                    <p className="text-sm text-black/60">Avg. Time to Results</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
       {/* TEAM */}
-      <section id="team" className="py-32 max-w-4xl mx-auto px-6">
-        <h2 className="font-serif text-5xl text-center mb-20">Your Career Success Team</h2>
-        <div className="grid md:grid-cols-2 gap-12">
+      <section id="team" className="py-40 max-w-5xl mx-auto px-6">
+        <h2 className="font-serif text-5xl text-center mb-24">
+          Your Career Success Team
+        </h2>
+        <div className="grid md:grid-cols-2 gap-16">
           {["Kateryna – Career Coach", "Irma – Career Strategist"].map((name) => (
             <Card key={name} className="text-center">
               <CardContent>
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-black/5" />
+                <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-black/5" />
                 <h3 className="font-serif text-2xl">{name}</h3>
               </CardContent>
             </Card>
@@ -185,13 +200,13 @@ export default function App() {
       </section>
 
       {/* VALUES */}
-      <section id="values" className="py-32 bg-black/5">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+      <section id="values" className="py-40 bg-black/5">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-16">
           {["Authenticity", "Support", "Growth"].map((v) => (
             <Card key={v}>
               <CardContent>
-                <h3 className="font-serif text-xl mb-2">{v}</h3>
-                <p className="text-black/60">
+                <h3 className="font-serif text-2xl mb-4">{v}</h3>
+                <p className="text-black/60 text-lg">
                   Genuine, human-centered consulting focused on long-term impact.
                 </p>
               </CardContent>
@@ -201,11 +216,16 @@ export default function App() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="py-40 border-t border-black/10">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20">
+      <section id="contact" className="py-48 border-t border-black/10">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-24">
           <div>
-            <h2 className="font-serif text-5xl mb-6">Let’s talk about your next step</h2>
-            <p className="text-black/70">
+            <p className="uppercase tracking-widest text-xs text-black/40 mb-6">
+              Contact
+            </p>
+            <h2 className="font-serif text-6xl mb-8">
+              Let’s talk about your next step
+            </h2>
+            <p className="text-black/70 text-lg">
               Share your goals. We’ll help you define the smartest next move.
             </p>
           </div>
@@ -213,16 +233,16 @@ export default function App() {
             <CardContent>
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <input name="name" required placeholder="Name" className="w-full p-3 border rounded" />
-                  <input name="phone" required placeholder="Phone" className="w-full p-3 border rounded" />
-                  <input name="email" required type="email" placeholder="Email" className="w-full p-3 border rounded" />
-                  <textarea name="message" required placeholder="How can I help you?" className="w-full p-3 border rounded h-32" />
-                  <Button className="w-full rounded-full">Send Message</Button>
+                  <input name="name" required placeholder="Name" className="w-full p-4 border rounded-lg" />
+                  <input name="phone" required placeholder="Phone" className="w-full p-4 border rounded-lg" />
+                  <input name="email" required type="email" placeholder="Email" className="w-full p-4 border rounded-lg" />
+                  <textarea name="message" required placeholder="How can I help you?" className="w-full p-4 border rounded-lg h-36" />
+                  <Button className="w-full rounded-full py-3">Send Message</Button>
                 </form>
               ) : (
                 <div className="text-center">
                   <CheckCircle className="mx-auto text-[#D4AF37]" size={64} />
-                  <p className="mt-6 font-serif text-2xl">Thank you.</p>
+                  <p className="mt-8 font-serif text-2xl">Thank you.</p>
                   <p className="text-black/60">Your message has been sent.</p>
                 </div>
               )}
@@ -232,7 +252,7 @@ export default function App() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#111111] text-white/80 py-20">
+      <footer className="bg-[#111111] text-white/80 py-24">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-16">
           <div>
             <p className="font-serif text-lg text-white mb-2">NEXT STEP</p>
@@ -242,8 +262,8 @@ export default function App() {
           </div>
 
           <div>
-            <p className="text-white font-medium mb-4">Our Services</p>
-            <ul className="space-y-2 text-white/60">
+            <p className="text-white font-medium mb-6">Our Services</p>
+            <ul className="space-y-3 text-white/60">
               <li>Resume Review</li>
               <li>Interview Preparation</li>
               <li>Career Strategy</li>
@@ -252,8 +272,8 @@ export default function App() {
           </div>
 
           <div>
-            <p className="text-white font-medium mb-4">Quick Links</p>
-            <ul className="space-y-2 text-white/60">
+            <p className="text-white font-medium mb-6">Quick Links</p>
+            <ul className="space-y-3 text-white/60">
               <li><a href="#services">Services</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#team">Team</a></li>
@@ -262,7 +282,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-center text-white/40 text-sm">
+        <div className="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/10 text-center text-white/40 text-sm">
           © 2026 NEXT STEP. All rights reserved. · Privacy Policy · Terms of Service
         </div>
       </footer>
