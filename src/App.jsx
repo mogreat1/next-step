@@ -115,13 +115,58 @@ export default function App() {
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="py-32 max-w-6xl mx-auto px-6 text-center">
-        <h2 className="font-serif text-5xl mb-6">Your Path to Career Success</h2>
-        <p className="text-black/60">
-          We guide you through every step of your career journey with proven strategies
-          and personalized support.
-        </p>
+      {/* ABOUT / PROCESS */}
+      <section id="about" className="py-32 max-w-7xl mx-auto px-6">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <p className="tracking-widest text-sm text-black/50 mb-4">OUR APPROACH</p>
+          <h2 className="font-serif text-5xl mb-6">Your Path to Career Success</h2>
+          <p className="text-black/60">
+            We guide you through every step of your career journey with proven strategies
+            and personalized support.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-16">
+          <div>
+            <h3 className="font-serif text-2xl mb-8">Our Process</h3>
+            <div className="space-y-4">
+              {[
+                "Discovery Call – understanding your goals and challenges.",
+                "Assessment – in-depth review of skills and experience.",
+                "Strategy Development – tailored career action plan.",
+                "Implementation – resumes, interviews, job search.",
+                "Success & Follow-up – support until you land the role.",
+              ].map((step, i) => (
+                <div key={i} className="bg-white/80 border border-black/10 rounded-2xl p-5">
+                  {step}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <Card>
+            <CardContent>
+              <h3 className="font-serif text-2xl mb-6">What You Get</h3>
+              <ul className="space-y-3 text-black/70">
+                <li>• Personalized 1-on-1 coaching</li>
+                <li>• Industry-specific guidance</li>
+                <li>• Resume & LinkedIn optimization</li>
+                <li>• Mock interview practice</li>
+                <li>• Salary negotiation strategies</li>
+              </ul>
+              <div className="flex gap-10 mt-10">
+                <div>
+                  <p className="text-3xl font-serif text-[#D4AF37]">95%</p>
+                  <p className="text-sm text-black/60">Success Rate</p>
+                </div>
+                <div>
+                  <p className="text-3xl font-serif text-[#D4AF37]">2 weeks</p>
+                  <p className="text-sm text-black/60">Avg. Time to Results</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </section>
 
       {/* TEAM */}
@@ -146,7 +191,9 @@ export default function App() {
             <Card key={v}>
               <CardContent>
                 <h3 className="font-serif text-xl mb-2">{v}</h3>
-                <p className="text-black/60">Human-centered consulting.</p>
+                <p className="text-black/60">
+                  Genuine, human-centered consulting focused on long-term impact.
+                </p>
               </CardContent>
             </Card>
           ))}
@@ -158,7 +205,9 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20">
           <div>
             <h2 className="font-serif text-5xl mb-6">Let’s talk about your next step</h2>
-            <p className="text-black/70">Share your goals. We’ll help you define the smartest next move.</p>
+            <p className="text-black/70">
+              Share your goals. We’ll help you define the smartest next move.
+            </p>
           </div>
           <Card>
             <CardContent>
@@ -174,6 +223,7 @@ export default function App() {
                 <div className="text-center">
                   <CheckCircle className="mx-auto text-[#D4AF37]" size={64} />
                   <p className="mt-6 font-serif text-2xl">Thank you.</p>
+                  <p className="text-black/60">Your message has been sent.</p>
                 </div>
               )}
             </CardContent>
@@ -182,9 +232,41 @@ export default function App() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#111111] text-white/80 py-20 text-center">
-        © 2026 NEXT STEP. All rights reserved.
+      <footer className="bg-[#111111] text-white/80 py-20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-16">
+          <div>
+            <p className="font-serif text-lg text-white mb-2">NEXT STEP</p>
+            <p className="text-white/60 max-w-sm">
+              Career Consulting: CV review, interview preparation, and career strategy.
+            </p>
+          </div>
+
+          <div>
+            <p className="text-white font-medium mb-4">Our Services</p>
+            <ul className="space-y-2 text-white/60">
+              <li>Resume Review</li>
+              <li>Interview Preparation</li>
+              <li>Career Strategy</li>
+              <li>Job Search Support</li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-white font-medium mb-4">Quick Links</p>
+            <ul className="space-y-2 text-white/60">
+              <li><a href="#services">Services</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-center text-white/40 text-sm">
+          © 2026 NEXT STEP. All rights reserved. · Privacy Policy · Terms of Service
+        </div>
       </footer>
+
     </div>
   );
 }
